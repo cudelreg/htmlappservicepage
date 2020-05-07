@@ -3,5 +3,6 @@ Connect-AzAccount
 git clone https://github.com/cudelreg/htmlappservicepage/
 cd htmlappservicepage
 
+$templateFile = "C:\Windows\system32\htmlappservicepage\azuredeploy.json"
 New-AzResourceGroupDeployment -Name CurtARMtemplate -ResourceGroupName TestCurt-ARM -TemplateFile "C:\Windows\system32\htmlappservicepage\azuredeploy.json"
 
