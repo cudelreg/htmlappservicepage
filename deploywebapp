@@ -5,17 +5,26 @@ gitrepo=https://github.com/cudelreg/htmlappservicepage
 webappname=curthtmlviaarmtemplate$RANDOM
 resourcegroup=TestCurt-ARM$RANDOM
 
+#clone giot repo where html file sits
+git clone https://github.com/cudelreg/htmlappservicepage
+cd htmlappservicepage
+
 # Create a resource group.
 az group create --location westus --name $resourcegroup
 echo $resourcegroup
 
-# Create an App Service plan in Standard_GRS
+# Create an App Service plan with S1
 az appservice plan create --name $webappname --resource-group $resourcegroup --sku S1
 echo $webappname
 
 # Create a web app.
 # az webapp create --name $webappname --resource-group $resourcegroup \ --plan $webappname
 az webapp up --location westus --name $webappname –html
+
+#cleanup
+cd ..
+rm -rf htmlappservicepage
+
 
 #Create a deployment slot called staging
 az webapp deployment slot create --name $webappname --resource-group myResourceGroup \ --slot staging
