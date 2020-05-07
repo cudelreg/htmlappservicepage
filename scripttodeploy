@@ -1,8 +1,11 @@
 #deploy via Powershell
-Connect-AzAccount
+
+Connect-AzAccount -Tenant 72f988bf-86f1-41af-91ab-2d7cd011db47
+Set-AzContext -SubscriptionId aead182a-6a79-48eb-b385-59f9f60bc5a3 
+
+New-AzResourceGroup -Name TestCurt-ARM -Location "West US"
+cd C:\
 git clone https://github.com/cudelreg/htmlappservicepage/
-cd htmlappservicepage
 
-$templateFile = "C:\Windows\system32\htmlappservicepage\azuredeploy.json"
-New-AzResourceGroupDeployment -Name CurtARMtemplate -ResourceGroupName TestCurt-ARM -TemplateFile "C:\Windows\system32\htmlappservicepage\azuredeploy.json"
-
+$templateFile = "C:\htmlappservicepage\azuredeploy.json"
+New-AzResourceGroupDeployment -Name CurtARMtemplate -ResourceGroupName TestCurt-ARM -TemplateFile $templateFile
