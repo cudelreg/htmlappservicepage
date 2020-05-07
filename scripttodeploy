@@ -1,3 +1,7 @@
-az login
-templateFile="{https://github.com/cudelreg/htmlappservicepage}" 
-az deployment group create --name CurtARMtemplate --resource-group TestCurt-ARM --template-file $templateFile
+templateFile="https://github.com/cudelreg/htmlappservicepage/ARMtemplate"
+az deployment group create \
+  --name CurtARMtemplate \
+  --resource-group TestCurt-ARM \
+  --template-file $templateFile
+
+
