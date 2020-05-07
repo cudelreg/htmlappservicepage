@@ -1,16 +1,8 @@
 #deploy via Powershell
-$templateFile = "https://github.com/cudelreg/htmlappservicepage/ARMtemplate"
-New-AzResourceGroupDeployment `
-  -Name CurtARMtemplate `
-  -ResourceGroupName TestCurt-ARM `
-  -TemplateFile $templateFile 
+Connect-AzAccount
+git clone https://github.com/cudelreg/htmlappservicepage/
 
+New-AzResourceGroupDeployment -Name CurtARMtemplate -ResourceGroupName TestCurt-ARM -TemplateFile "C:\Windows\system32\htmlappservicepage\ARMtemplate"
 
-#deploy via AZ CLI
-templateFile="https://github.com/cudelreg/htmlappservicepage/ARMtemplate"
-az deployment group create \
-  --name CurtARMtemplate \
-  --resource-group TestCurt-ARM \
-  --template-file $templateFile
 
 
