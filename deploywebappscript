@@ -19,7 +19,7 @@ echo $webappname
 
 # Create a web app.
 # az webapp create --name $webappname --resource-group $resourcegroup \ --plan $webappname
-az webapp up --location westus --name $webappname –html
+az webapp up --location westus --name $webappname --html
 
 #cleanup
 cd ..
