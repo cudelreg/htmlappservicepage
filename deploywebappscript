@@ -24,3 +24,5 @@ az webapp up --location westus --name $webappname --html
 #cleanup
 cd ..
 rm -rf htmlappservicepage
+
+#end
